@@ -59,11 +59,6 @@ class Table {
 				this.data.add(row);
 			}
 		}
-		public void insertBulk(String[][] rows) {
-			for (String[] row : rows) {
-				this.data.add(row);
-			}
-		}
 
 		public String print() {
 			String result = "TABLE " + this.name + "\n";
