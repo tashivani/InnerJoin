@@ -1,0 +1,30 @@
+Results:
+
+TABLE Student
+Name,ID,
+Josh,101,
+Bob,102,
+Mark,103,
+Steve,104,
+
+TABLE Enrollment
+Course,ID,SID,
+Database Implementation,4340,101,
+Database Implementation,4340,102,
+Database Implementation,4340,103,
+Database Implementation,4340,104,
+Computer Security,4540,103,
+Computer Security,4540,101,
+Graph Theory,4060,102,
+Graph Theory,4060,101,
+
+TABLE Student-JOIN-Enrollment
+Student.Name,Student.ID,Enrollment.Course,Enrollment.ID,Enrollment.SID,
+Josh,101,Database Implementation,4340,101,
+Josh,101,Computer Security,4540,101,
+Josh,101,Graph Theory,4060,101,
+Bob,102,Database Implementation,4340,102,
+Bob,102,Graph Theory,4060,102,
+Mark,103,Database Implementation,4340,103,
+Mark,103,Computer Security,4540,103,
+Steve,104,Database Implementation,4340,104,
