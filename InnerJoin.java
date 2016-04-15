@@ -4,28 +4,38 @@ public class InnerJoin
 {
 	public static void main(String[] args)
 	{
-		String[] columns1 = {"Letter", "Number"};
-		Table table1 = new Table("left", columns1);
+		String[] columns1 = {"Name", "ID"};
+		Table table1 = new Table("Student", columns1);
 
-		String[] columns2 = {"Number", "Letter"};
-		Table table2 = new Table("right", columns2);
+		String[] columns2 = {"Course", "ID", "SID"};
+		Table table2 = new Table("Enrollment", columns2);
 
-		String[] row1 = {"A","1"};
-		String[] row2 = {"B", "2"};
-		table1.insert(row1);
-		table1.insert(row2);
+		String[][] rows1 = {
+			{"Josh","101"},
+			{"Bob", "102"},
+			{"Mark", "103"},
+			{"Steve", "104"}
+		};
 
-		String[] row3 = {"1", "X"};
-		String[] row4 = {"1", "Y"};
-		String[] row5 = {"2", "Z"};
-		table2.insert(row3);
-		table2.insert(row4);
-		table2.insert(row5);
+		table1.insert(rows1);
+
+		String[][] rows2 = {
+			{"Database Implementation", "4340", "101"},
+			{"Database Implementation", "4340", "102"},
+			{"Database Implementation", "4340", "103"},
+			{"Database Implementation", "4340", "104"},
+			{"Computer Security", "4540", "103"},
+			{"Computer Security", "4540", "101"},
+			{"Graph Theory", "4060", "102"},
+			{"Graph Theory", "4060", "101"}
+		};
+
+		table2.insert(rows2);
 
 		System.out.println(table1.print());
 		System.out.println(table2.print());
 
-		System.out.println(Table.join(table1, "Number",table2, "Number").print());
+		System.out.println(Table.join(table1, "ID",table2, "SID").print());
 	}
 }	
 class Table {
@@ -44,8 +54,15 @@ class Table {
 			}
 		}
 
-		public void insert(String[] row) {
-			this.data.add(row);
+		public void insert(String[]... rows) {
+			for (String[] row : rows) {
+				this.data.add(row);
+			}
+		}
+		public void insertBulk(String[][] rows) {
+			for (String[] row : rows) {
+				this.data.add(row);
+			}
 		}
 
 		public String print() {
