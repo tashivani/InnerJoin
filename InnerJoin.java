@@ -4,9 +4,6 @@ public class InnerJoin
 {
 	public static void main(String[] args)
 	{
-		// List<String[]> table1 = new ArrayList<String[]>();
-		// List<String[]> table2 = new ArrayList<String[]>();
-
 		String[] columns1 = {"Letter", "Number"};
 		Table table1 = new Table("left", columns1);
 
@@ -29,40 +26,6 @@ public class InnerJoin
 		System.out.println(table2.print());
 
 		System.out.println(Table.join(table1, "Number",table2, "Number").print());
-
-		// runInnerJoin();
-	}
-
-	public static void runInnerJoin(List<String[]> R, List<String[]> S)
-	{
-		// • Idea:
-		// for each tuple r in R do
-		// 	for each tuple s in S do
-		// 		if r, s satisfies join cond, then
-		// 		add r, s to result
-
-
-		// • For each tuple in the outer relation R, we scan the
-		// entire inner relations S
-
-		// for(String[] r: R){
-		// 	for(String[] s: S){
-
-		// 	}
-		// }
-
-		System.out.println("InnerJoin:");
-	}
-
-	public static void printTable(List<String[]> table)
-	{
-        for(String[] row: table){
-        	for (String elem: row){
-	        	System.out.print(elem);
-        	}
-        	System.out.println();
-        }
-		System.out.println();
 	}
 }	
 class Table {
